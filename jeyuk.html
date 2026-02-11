@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeyuk-store</title>
+    <style>
+        body { 
+            font-family: 'Georgia', serif; 
+            margin: 0; 
+            padding: 20px; 
+            background: linear-gradient(to bottom, #2c1810, #1a0a0a); /* Gradient ungu gelap ke hitam */
+            color: #e0e0e0; 
+            text-align: center; 
+        }
+        header { 
+            background: rgba(0,0,0,0.8); 
+            color: #e0e0e0; 
+            padding: 40px; 
+            border-radius: 10px; 
+            border: 1px solid #6a0dad; /* Ungu gelap */
+            box-shadow: 0 4px 20px rgba(106,13,173,0.3); 
+            animation: fadeIn 1s ease-in; 
+        }
+        .products { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            margin: 40px auto; 
+            max-width: 1200px; 
+        }
+        .product { 
+            background: rgba(0,0,0,0.9); 
+            margin: 20px; 
+            padding: 20px; 
+            border-radius: 10px; 
+            border: 1px solid #6a0dad; 
+            box-shadow: 0 4px 20px rgba(106,13,173,0.3); 
+            width: 250px; 
+            text-align: center; 
+            animation: slideUp 1s ease-out; 
+        }
+        .product img { 
+            width: 100%; 
+            height: 150px; 
+            object-fit: cover; 
+            border-radius: 5px; 
+        }
+        button { 
+            background: #6a0dad; 
+            color: #fff; 
+            border: 1px solid #6a0dad; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            margin: 10px; 
+            font-family: 'Georgia', serif; 
+            transition: background-color 0.3s ease, color 0.3s ease; 
+        }
+        button:hover { 
+            background: #ffd700; /* Aksen emas untuk elegan */
+            color: #333; 
+        }
+        .modal { 
+            display: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(0,0,0,0.8); 
+            justify-content: center; 
+            align-items: center; 
+            z-index: 1000; 
+            animation: fadeIn 0.5s ease-in; 
+        }
+        .modal-content { 
+            background: rgba(0,0,0,0.9); 
+            padding: 40px; 
+            border-radius: 10px; 
+            border: 1px solid #6a0dad; 
+            box-shadow: 0 4px 20px rgba(106,13,173,0.5); 
+            max-width: 400px; 
+            text-align: center; 
+        }
+        footer { 
+            margin-top: 40px; 
+            color: #999; 
+            animation: fadeIn 2s ease-in; 
+        }
+        
+        /* Keyframes animasi halus */
+        @keyframes fadeIn { 
+            from { opacity: 0; } 
+            to { opacity: 1; } 
+        }
+        @keyframes slideUp { 
+            from { transform: translateY(20px); opacity: 0; } 
+            to { transform: translateY(0); opacity: 1; } 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🏰 Jeyuk-store</h1>
+        <p>Beli rank premium untuk jeyuk smp dan untuk support kami!</p>
+    </header>
+    
+    <div class="products">
+        <div class="product">
+            <img src="https://via.placeholder.com/250x150/6a0dad/ffffff?text=Rank+1" alt="Rank 1">
+            <h3>Rank 1 - Newbie</h3>
+            <p>tanya ke owner untuk
+             fitur nya.</p>
+            <p>Harga: Rp 5.000</p>
+            <button onclick="buyRank('Rank 1 - Newbie', '5000')">Beli Sekarang</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/250x150/6a0dad/ffffff?text=Rank+2" alt="Rank 2">
+            <h3>Rank 2 - Explorer</h3>
+            <p>tanya ke owner untuk
+             fitur nya.</p>
+            <p>Harga: Rp 10.000</p>
+            <button onclick="buyRank('Rank 2 - Explorer', '10000')">Beli Sekarang</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/250x150/6a0dad/ffffff?text=Rank+3" alt="Rank 3">
+            <h3>Rank 3 - Adventurer</h3>
+            <p>tanya ke owner untuk
+             fitur nya.</p>
+            <p>Harga: Rp 15.000</p>
+            <button onclick="buyRank('Rank 3 - Adventurer', '15000')">Beli Sekarang</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/250x150/6a0dad/ffffff?text=Rank+4" alt="Rank 4">
+            <h3>Rank 4 - Hero</h3>
+            <p>tanya ke owner untuk
+             fitur nya.</p>
+            <p>Harga: Rp 20.000</p>
+            <button onclick="buyRank('Rank 4 - Hero', '20000')">Beli Sekarang</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/250x150/6a0dad/ffffff?text=Rank+5" alt="Rank 5">
+            <h3>Rank 5 - Legend</h3>
+            <p>tanya ke owner untuk
+             fitur nya.</p>
+            <p>Harga: Rp 35.000</p>
+            <button onclick="buyRank('Rank 5 - Legend', '35000')">Beli Sekarang</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/250x150/6a0dad/ffffff?text=Rank+6" alt="Rank 6">
+            <h3>Rank 6 - DONATUR</h3>
+            <p>FITUR NYA PALING OP.</p>
+            <p>Harga: Rp 50.000</p>
+            <button onclick="buyRank('Rank 6 - DONATUR', '50000')">Beli Sekarang</button>
+        </div>
+    </div>
+    
+    <div id="buyModal" class="modal">
+        <div class="modal-content">
+            <h2>Konfirmasi Pembelian</h2>
+            <p id="rankDetails"></p>
+            <p>Bayar ke GoPay: <strong>0895337092424</strong></p>
+            <p>Setelah bayar, kirim bukti ke WA untuk konfirmasi.</p>
+            <button onclick="sendToWA()">Kirim ke WA Saya</button>
+            <button onclick="closeModal()">Tutup</button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Kontak: WA - 089519163727 | Email - arsaamerta007@gmail.com</p>
+        <p>&copy; 2023 Jeyuk-store. Semua hak dilindungi.</p>
+    </footer>
+    
+    <script>
+        let selectedRank = '';
+        let selectedPrice = '';
+        
+        function buyRank(rank, price) {
+            selectedRank = rank;
+            selectedPrice = price;
+            document.getElementById('rankDetails').innerText = `Rank: ${rank} - Harga: Rp ${price}`;
+            document.getElementById('buyModal').style.display = 'flex';
+        }
+        
+        function sendToWA() {
+            const waNumber = '6289519163727'; // Nomor WA kamu
+            const message = `Halo, saya ingin beli ${selectedRank} seharga Rp ${selectedPrice}. Sudah bayar ke GoPay 0895337092424. Bukti transfer: [Lampirkan bukti]`;
+            const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+            window.open(waLink, '_blank');
+            closeModal();
+        }
+        
+        function closeModal() {
+            document.getElementById('buyModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
